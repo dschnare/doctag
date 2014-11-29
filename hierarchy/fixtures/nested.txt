@@ -1,0 +1,20 @@
+<{#nums}>1
+<{#nums}>2<{!}>
+
+<{aa/#b/name}>Dave
+<{aa/b/title}>Plumber
+<{aa/b/age}>36
+<{aa/#b/name}>Max
+<{aa/b/title}>3D Animator
+<{aa/b/age}>24
+
+<{3a/b/c/d/e/f/test/title}>
+Boom
+
+<{obj/#urls}>http://google.com1
+<{obj/#urls}>http://google.com2
+<{obj/#urls}>http://google.com3
+<{obj/#urls}>http://google.com4
+
+<{#nums}>3
+<{#nums}>4

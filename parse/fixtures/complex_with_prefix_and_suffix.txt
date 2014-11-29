@@ -1,0 +1,13 @@
+-- Headline --
+This is a headline
+
+-- !Skip --世-- Headline2 --
+This is a headline
+
+  -- Headline3 --
+This is a headline
+This is another line
+
+
+-- Headline4 -- Headline 4 -- Headline4 / Link -- Headline 4 Link
+-- Broke -- --Boom

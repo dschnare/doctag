@@ -1,0 +1,6 @@
+This is a file with no doc tags.
+
+This <{looks like a doc tag but it's not.
+
+This looks}> like the closing of a doc tag but because there is a 
+newline betewen the opening and the closing it shouldn't be parsed as a doc tag.
