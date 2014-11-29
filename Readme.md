@@ -1,6 +1,6 @@
 # Overview
 
-This project exposes several Go packages that handle reading doctag files.
+Doctag exposes several Go packages that handle reading doctag files.
 
 ## What's a doctag?
 
