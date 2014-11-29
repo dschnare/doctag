@@ -46,10 +46,10 @@ over leading and trailing whitespace and/or improving ledgability.
 
 # Packages
 
-**[parse](parse/Readme.txt)** - Package parse builds a slice of nodes from UTF-8 encoded text documents that have doctags.
+**[parse](parse)** - Package parse builds a slice of nodes from UTF-8 encoded text documents that have doctags.
 
-**[identifier](identifier/Readme.txt)** - Package identifier implements a converter for UTF-8 strings to UTF-8 identifiers.
+**[identifier](identifier)** - Package identifier implements a converter for UTF-8 strings to UTF-8 identifiers.
 
-**[hierarchy](hierarchy/Readme.txt)** - Package hierarchy implements a doctag transformer that transforms a list of doctags into a map hierarchy.
+**[hierarchy](hierarchy)** - Package hierarchy implements a doctag transformer that transforms a list of doctags into a map hierarchy.
 
 **[main](doctag.txt)** - Package main implements a command line utility that exposes a doctag parser and hierarchy transformer.
