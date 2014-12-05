@@ -59,6 +59,9 @@ over leading and trailing whitespace and/or improving ledgability.
       -trim=false: Trim the leading and trailing whitespace from all doctag values.
       -warn=false: Print warning messages.
 
+If no file path is specified as an argument then a file contents are expected to be piped into stdin.
+
+If no output argument is specified then the out is piped to stdout.
 
 # Packages
 
