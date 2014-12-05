@@ -1,3 +1,5 @@
+[![GoDoc](https://godoc.org/github.com/dschnare/doctag?status.svg)](https://godoc.org/github.com/dschnare/doctag)
+
 # Overview
 
 Doctag exposes several Go packages that handle reading doctag files.
