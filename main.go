@@ -1,5 +1,5 @@
 /*
-Package main implements a command line utility that exposes a
+Doctag implements a command line utility that exposes a
 doctag parser and hierarchy transformer. Use `doctag --help` for
 details about each command line argument.
 
