@@ -1,9 +1,8 @@
 /*
-Doctag implements a command line utility that exposes a
-doctag parser and hierarchy transformer. Use `doctag --help` for
-details about each command line argument.
+The doctag command exposes a doctag parser and hierarchy transformer. 
+Use `doctag --help` for details about each command line argument.
 
-This utilty supports standard in piping of a doctag file contents.
+This command supports standard in piping of a doctag file contents.
 If the `--output` argument is not specified then output will be 
 piped to standard out.
 */
