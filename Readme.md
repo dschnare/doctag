@@ -73,4 +73,4 @@ If no output argument is specified then the out is piped to stdout.
 
 # Commands
 
-**[doctag](http://godoc.org/github.com/dschnare/doctag/parse)** - The doctag command exposes a doctag parser and hierarchy transformer.
+**[doctag](http://godoc.org/github.com/dschnare/doctag)** - The doctag command exposes a doctag parser and hierarchy transformer.
