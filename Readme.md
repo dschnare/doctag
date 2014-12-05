@@ -44,6 +44,22 @@ over leading and trailing whitespace and/or improving ledgability.
   	<{!}>
 
 
+# Usage
+
+    doctag {file path} | doctag [help|/?]
+      -help=false: Show the help message.
+      -hierarchical=false: Converts the flat doctag tree into a nested JSON object.
+      -hierarchy=false: Converts the flat doctag tree into a nested JSON object. (shorthand)
+      -output="": The output file to write to.
+      -pretty=false: Print JSON result with indentation. (shorthand)
+      -pretty-print=false: Print JSON result with indentation.
+      -tag-prefix="<{": The prefix to use for doc tags.
+      -tag-separator="/": The separator character to use for hierarchical doc tags.
+      -tag-suffix="}>": The suffix to use for doc tags.
+      -trim=false: Trim the leading and trailing whitespace from all doctag values.
+      -warn=false: Print warning messages.
+
+
 # Packages
 
 **[parse](parse)** - Package parse builds a slice of nodes from UTF-8 encoded text documents that have doctags.

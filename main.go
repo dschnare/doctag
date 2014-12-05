@@ -40,7 +40,7 @@ var (
 )
 
 func usage() {
-  fmt.Fprintf(os.Stderr, "Usage: %s {file path} | %s [help|/?]\n", os.Args[0], os.Args[0])
+  fmt.Fprintf(os.Stderr, "Usage: doctag {file path} | doctag [help|/?]\n")
   flag.PrintDefaults()
 }
 
@@ -162,7 +162,10 @@ func createWriter() (*bufio.Writer, error) {
 }
 
 func doWrite(writer *bufio.Writer, doctags []*parse.DoctagNode) (err error) {
-  var value interface{}
+  var (
+    b []byte
+    value interface{}
+  )
 
   for _,doctag := range doctags {
     if !hierarchical {
@@ -179,23 +182,18 @@ func doWrite(writer *bufio.Writer, doctags []*parse.DoctagNode) (err error) {
   }
 
   if prettyPrint {
-    if b,err := json.Marshal(value); err == nil {
+    if b,err = json.Marshal(value); err == nil {
       var out bytes.Buffer
       if err = json.Indent(&out, b, "", "  "); err == nil {
-        out.WriteTo(writer)
-        writer.Flush()
-      } else {
-        return err
+        if _,err = out.WriteTo(writer); err == nil {
+          err = writer.Flush()
+        }
       }
-    } else {
-      return err
     }
   } else {
     jsonEncoder := json.NewEncoder(writer)
-    if err := jsonEncoder.Encode(value); err == nil {
-      writer.Flush()
-    } else {
-      return err
+    if err = jsonEncoder.Encode(value); err == nil {
+      err = writer.Flush()
     }
   }
 
