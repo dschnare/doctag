@@ -12,10 +12,12 @@ a named or tagged piece of content. An example document with a doctag could be:
     <{headline}>
     Today's News Stories
 
-When this document is parsed it would parse out a DoctagNode with the name "headline" and
-value "\nToday's News Stories". The parsing functions makes the assumption that leading
-and trailing whitespace characters are important. It's left for the consumer of the parse
-results to decide how to treat leading/trailing whtiespace.
+When this document is parsed it would result in a DoctagNode with the name "headline" and
+value "\nToday's News Stories". A doctag's value is all text between the end of the doctag
+and the begining of the next doctag or the end of file, whichever occurs first. 
+The parsing functions makes the assumption that leading and trailing whitespace 
+characters are important. It's left for the consumer of the parse results to decide how to
+treat leading/trailing whtiespace.
 
 Doctag names can contain any unicode character so long as the tag suffix substring is not encountered.
 This example treats doctags like a file system hierarchy. Also notice that doctag names can contain
