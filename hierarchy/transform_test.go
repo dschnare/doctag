@@ -2,7 +2,7 @@ package hierarchy
 
 import (
   "testing"
-  "bitbucket.org/dschnare/doctag/parse"
+  "github.com/dschnare/doctag/parse"
 )
 
 func TestTransform(t *testing.T) {
@@ -37,6 +37,7 @@ func TestTransform(t *testing.T) {
     if err != nil {
       t.Fatalf("unexpected error encountered : %v", err.Error())
     } else {
+      // t.Fatalf("%v", obj)
       testValue(obj, expected, t)
     }
   } else {
