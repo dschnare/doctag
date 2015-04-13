@@ -32,7 +32,7 @@ func TestParse_Empty(t *testing.T) {
 
 func TestParse_NoTags(t *testing.T) {
   doctags,err := ParseFile("./fixtures/no_tags.txt")
-  
+
   if len(doctags) > 0 {
     t.Fatalf("expected no doc tags to be found: found %v doc tags", len(doctags))
   }
@@ -46,13 +46,13 @@ func TestParse_BeginingOfFile(t *testing.T) {
   var expected = []*DoctagNode {
     &DoctagNode{
       Name: "Headline",
-      Value: "\nThis is a headline",
-      Line: 1,
-      Column: 1,
+      Value: "This is a headline",
+      Line: 2,
+      Column: 0,
     },
   }
 
-  doctags,err := ParseFile("./fixtures/begining_of_file.txt")
+  doctags,err := ParseFileWithPrefixAndSuffix("./fixtures/begining_of_file.txt", "\n", ":\n")
 
   if err != nil {
     t.Fatalf("expected no error: %v", err.Error())
@@ -183,16 +183,16 @@ func testSlice(doctags []*DoctagNode, expected []*DoctagNode, t *testing.T) {
   for k,expectedDoctag := range expected {
     doctag := doctags[k]
     if doctag.Name != expectedDoctag.Name {
-      t.Fatalf("expected the document to contain '%v' tag : got '%v'", expectedDoctag.Name, doctag.Name)
+      t.Fatalf("expected the document to contain doctag name '%v' tag : got '%v'", expectedDoctag.Name, doctag.Name)
     }
     if doctag.Value != expectedDoctag.Value {
-      t.Fatalf("expected the document to contain '%v:%v' tag : got '%v'", expectedDoctag.Name, []byte(expectedDoctag.Value), []byte(doctag.Value))
+      t.Fatalf("expected the document to contain doctag value '%v:%v' tag : got '%v'", expectedDoctag.Name, []byte(expectedDoctag.Value), []byte(doctag.Value))
     }
     if doctag.Line != expectedDoctag.Line {
-      t.Fatalf("expected tag '%v' to be on line %v : got '%v'", k, doctag.Line, doctag.Line)
+      t.Fatalf("expected tag '%v' to be on line %v : got '%v'", k, expectedDoctag.Line, doctag.Line)
     }
     if doctag.Column != expectedDoctag.Column {
-      t.Fatalf("expected tag '%v' to be on column %v : got '%v'", k, doctag.Column, doctag.Column)
+      t.Fatalf("expected tag '%v' to be on column %v : got '%v'", k, expectedDoctag.Column, doctag.Column)
     }
   }
 }

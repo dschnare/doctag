@@ -9,8 +9,8 @@ a named or tagged piece of content. An example document with a doctag could be:
 
 When this document is parsed it would result in a DoctagNode with the name "headline" and
 value "\nToday's News Stories". A doctag's value is all text between the end of the doctag
-and the begining of the next doctag or the end of file, whichever occurs first. 
-The parsing functions makes the assumption that leading and trailing whitespace 
+and the begining of the next doctag or the end of file, whichever occurs first.
+The parsing functions makes the assumption that leading and trailing whitespace
 characters are important. It's left for the consumer of the parse results to decide how to
 treat leading/trailing whtiespace.
 
@@ -41,7 +41,7 @@ over leading and trailing whitespace and/or improving ledgability.
   <{ page/content }>
   Blah ablah blab ablaha bal.
   <{!}>
-*/  
+*/
 package parse
 
 import (
@@ -124,7 +124,7 @@ func ParseWithPrefixAndSuffix(reader *bufio.Reader, tagPrefix string, tagSuffix 
   column := 0
   var currTag *DoctagNode
   var b byte
-  
+
   for b,err = reader.ReadByte(); err == nil || err == io.EOF; b,err = reader.ReadByte() {
     var ok bool
 
@@ -147,7 +147,9 @@ func ParseWithPrefixAndSuffix(reader *bufio.Reader, tagPrefix string, tagSuffix 
     if b == '\n' {
       line++
       column = 0
-    } else if b == tagPrefix[0] {
+    }
+
+    if b == tagPrefix[0] {
       if ok,err = consume(reader, tagPrefix); ok {
         if currTag != nil && len(currTag.Name) > 0 {
           // buff is previous tag's value (we don't want the first byte of the prefix)
@@ -199,13 +201,13 @@ func ParseWithPrefixAndSuffix(reader *bufio.Reader, tagPrefix string, tagSuffix 
   return
 }
 
-// Attempts to consume token from reader. 
+// Attempts to consume token from reader.
 // Expects the first rune to be already read from the reader.
 // In other words the first rune of the token is not re-read or verified.
 func consume(reader *bufio.Reader, token string) (ok bool, err error) {
   _,firstRuneSize := utf8.DecodeRuneInString(token)
   size := len(token) - firstRuneSize
-  
+
   if size <= 0 {
     ok = true
     return

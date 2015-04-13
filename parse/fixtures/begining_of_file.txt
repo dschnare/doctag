@@ -1,2 +1,3 @@
-<{Headline}>
+
+Headline:
 This is a headline

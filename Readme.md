@@ -14,8 +14,8 @@ a named or tagged piece of content. An example document with a doctag could be:
 
 When this document is parsed it would result in a DoctagNode with the name "headline" and
 value "\nToday's News Stories". A doctag's value is all text between the end of the doctag
-and the begining of the next doctag or the end of file, whichever occurs first. 
-The parsing functions makes the assumption that leading and trailing whitespace 
+and the begining of the next doctag or the end of file, whichever occurs first.
+The parsing functions makes the assumption that leading and trailing whitespace
 characters are important. It's left for the consumer of the parse results to decide how to
 treat leading/trailing whtiespace.
 
